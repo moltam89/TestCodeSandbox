@@ -1,10 +1,21 @@
 import "./styles.css";
 
 document.getElementById("app").innerHTML = `
-<h1>Test Hello Vanilla!</h1>
 <div>
-  We use the same configuration as Parcel to bundle this sandbox, you can find more
-  info about Parcel 
-  <a href="https://parceljs.org" target="_blank" rel="noopener noreferrer">here</a>.
+  
+  <p>BTC ---> Dollar</p>
+  <input value="" id="BTC">
+  <input value="" id="DOLLAR" disabled>
 </div>
 `;
+
+const btcDollar = 50000;
+
+const BTC = document.querySelector("#BTC");
+const dollar = document.querySelector("#DOLLAR");
+
+BTC.addEventListener("input", updateValue);
+
+function updateValue(e) {
+  dollar.value = e.target.value * btcDollar;
+}
