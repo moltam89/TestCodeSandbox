@@ -4,3 +4,5 @@ import { create } from "./currencyConverter.js";
 create("USD", "BTC", 500000, document.body);
 
 create("EUR", "HUF", 360, document.body);
+
+create("USD", "HUF", 300, document.body);
