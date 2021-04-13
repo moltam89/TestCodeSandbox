@@ -1,21 +1,6 @@
 import "./styles.css";
+import { create } from "./currencyConverter.js";
 
-document.getElementById("app").innerHTML = `
-<div>
-  
-  <p>BTC ---> Dollar</p>
-  <input value="" id="BTC">
-  <input value="" id="DOLLAR" disabled>
-</div>
-`;
+create("USD", "BTC", 500000, "", document.body);
 
-const btcDollar = 50000;
-
-const BTC = document.querySelector("#BTC");
-const dollar = document.querySelector("#DOLLAR");
-
-BTC.addEventListener("input", updateValue);
-
-function updateValue(e) {
-  dollar.value = e.target.value * btcDollar;
-}
+create("EUR", "HUF", 358, "", document.body);
