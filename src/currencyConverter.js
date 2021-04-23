@@ -1,40 +1,47 @@
-function create(fromCurrency, toCurrency, exchangeRate, parent) {
-  let divWrapper = document.createElement("div");
+export default class CurrencyConverter {
+  constructor(fromCurrency, toCurrency, exchangeRate, parent) {
+    this.fromCurrency = fromCurrency;
+    this.toCurrency = toCurrency;
+    this.exchangeRate = exchangeRate;
+    this.parent = parent;
+  }
 
-  parent.appendChild(divWrapper);
+  create() {
+    let divWrapper = document.createElement("div");
 
-  let header = document.createElement("span");
-  header.innerHTML = fromCurrency + " > " + toCurrency + "<br />";
+    this.parent.appendChild(divWrapper);
 
-  divWrapper.appendChild(header);
+    let header = document.createElement("span");
+    header.innerHTML = this.fromCurrency + " > " + this.toCurrency + "<br />";
 
-  divWrapper.appendChild(document.createElement("p"));
+    divWrapper.appendChild(header);
 
-  let fromInput = document.createElement("input");
+    divWrapper.appendChild(document.createElement("p"));
 
-  fromInput.setAttribute("type", "number");
-  fromInput.setAttribute("value", 0);
+    let fromInput = document.createElement("input");
 
-  let toInput = document.createElement("input");
-  toInput.disabled = true;
+    fromInput.setAttribute("type", "number");
+    fromInput.setAttribute("value", 0);
 
-  header.appendChild(fromInput);
+    let toInput = document.createElement("input");
+    toInput.disabled = true;
 
-  let fromLabel = document.createElement("label");
-  fromLabel.innerHTML = fromCurrency;
-  fromLabel.setAttribute("for", fromCurrency);
-  header.appendChild(fromLabel);
+    header.appendChild(fromInput);
 
-  header.appendChild(toInput);
+    let fromLabel = document.createElement("label");
+    fromLabel.innerHTML = this.fromCurrency;
+    fromLabel.setAttribute("for", this.fromCurrency);
+    header.appendChild(fromLabel);
 
-  let toLabel = document.createElement("label");
-  toLabel.innerHTML = toCurrency;
-  toLabel.setAttribute("for", toCurrency);
-  header.appendChild(toLabel);
+    header.appendChild(toInput);
 
-  fromInput.addEventListener("input", (e) => {
-    toInput.value = e.target.value * exchangeRate;
-  });
+    let toLabel = document.createElement("label");
+    toLabel.innerHTML = this.toCurrency;
+    toLabel.setAttribute("for", this.toCurrency);
+    header.appendChild(toLabel);
+
+    fromInput.addEventListener("input", (e) => {
+      toInput.value = e.target.value * this.exchangeRate;
+    });
+  }
 }
-
-export { create };

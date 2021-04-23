@@ -1,8 +1,11 @@
 import "./styles.css";
-import { create } from "./currencyConverter.js";
+import CurrencyConverter from "./currencyConverter.js";
 
-create("USD", "BTC", 500000, document.body);
+let USD_BTC = new CurrencyConverter("USD", "HUF", 300, document.body);
+USD_BTC.create();
 
-create("EUR", "HUF", 360, document.body);
+let EUR_HUF = new CurrencyConverter("EUR", "HUF", 360, document.body);
+EUR_HUF.create();
 
-create("USD", "HUF", 300, document.body);
+let USD_HUF = new CurrencyConverter("USD", "HUF", 300, document.body);
+EUR_HUF.create();
