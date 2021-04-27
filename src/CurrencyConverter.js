@@ -27,6 +27,7 @@ export default class CurrencyConverter {
     fromInput.setAttribute("oninput", "this.value = Math.abs(this.value)");
 
     let toInput = document.createElement("input");
+    toInput.setAttribute("value", 0);
     toInput.disabled = true;
 
     header.appendChild(fromInput);
