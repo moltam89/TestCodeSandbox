@@ -5,3 +5,7 @@ body {
 .dark {
   background-color: grey;
 }
+
+.themeSelector {
+  text-align: center;
+}

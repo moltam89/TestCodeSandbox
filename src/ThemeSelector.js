@@ -12,9 +12,13 @@ export default class ThemeSelector {
   }
 
   create() {
+    let div = document.createElement("div");
+
     let themeSelector = document.createElement("select");
 
-    this.app.appendChild(themeSelector);
+    this.app.appendChild(div);
+    div.appendChild(themeSelector);
+    div.classList.add("themeSelector");
 
     let lightOption = document.createElement("option");
     lightOption.innerHTML = "Light";
