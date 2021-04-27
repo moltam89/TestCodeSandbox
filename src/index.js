@@ -4,6 +4,9 @@ import ThemeSelector from "./ThemeSelector";
 
 let app = document.getElementById("app");
 
+let themeSelector = new ThemeSelector(app);
+themeSelector.create();
+
 let USD_BTC = new CurrencyConverter("USD", "HUF", 300, app);
 USD_BTC.create();
 
@@ -12,6 +15,3 @@ EUR_HUF.create();
 
 let USD_HUF = new CurrencyConverter("USD", "HUF", 300, app);
 EUR_HUF.create();
-
-let themeSelector = new ThemeSelector();
-themeSelector.create();

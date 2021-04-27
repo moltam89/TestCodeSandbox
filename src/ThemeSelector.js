@@ -1,4 +1,8 @@
 export default class ThemeSelector {
+  constructor(app) {
+    this.app = app;
+  }
+
   goDark() {
     document.body.classList.add("dark");
   }
@@ -10,7 +14,7 @@ export default class ThemeSelector {
   create() {
     let themeSelector = document.createElement("select");
 
-    document.body.appendChild(themeSelector);
+    this.app.appendChild(themeSelector);
 
     let lightOption = document.createElement("option");
     lightOption.innerHTML = "Light";
