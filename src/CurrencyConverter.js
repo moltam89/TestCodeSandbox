@@ -13,7 +13,8 @@ export default class CurrencyConverter {
     this.parent.appendChild(divWrapper);
 
     let header = document.createElement("span");
-    header.innerHTML = this.fromCurrency + " > " + this.toCurrency + "<br />";
+    header.innerHTML =
+      this.fromCurrency + " > " + this.toCurrency + "<br />" + "<br />";
 
     divWrapper.appendChild(header);
 
