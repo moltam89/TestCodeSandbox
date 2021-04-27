@@ -8,6 +8,7 @@ export default class CurrencyConverter {
 
   create() {
     let divWrapper = document.createElement("div");
+    divWrapper.classList.add("currency");
 
     this.parent.appendChild(divWrapper);
 

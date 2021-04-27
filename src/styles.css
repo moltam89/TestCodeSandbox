@@ -6,6 +6,10 @@ body {
   background-color: grey;
 }
 
-.themeSelector {
+.app {
   text-align: center;
+}
+
+.currency {
+  padding: 30px;
 }
