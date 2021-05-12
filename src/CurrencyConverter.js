@@ -55,7 +55,7 @@ export default class CurrencyConverter {
     });
 
     fromInput.addEventListener("click", () => {
-      this.onClick();
+      this.click();
     });
   }
 }

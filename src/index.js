@@ -8,8 +8,12 @@ let themeSelector = new ThemeSelector(app);
 themeSelector.create();
 
 let clickCount = 0;
+let premiumMember = false;
 
-localStorage.setItem("premiumMember", "false");
+if (localStorage.getItem("premiumMember") === "true") {
+  premiumMember = true;
+  goPremium();
+}
 
 function click() {
   removePremiumButton();
@@ -19,7 +23,7 @@ function click() {
   if (clickCount > 4) {
     clickCount = 0;
 
-    if (localStorage.getItem("premiumMember") === "false") {
+    if (!premiumMember) {
       createPremiumButton();
     }
   }
@@ -35,7 +39,8 @@ function createPremiumButton() {
   button.innerHTML = "Premium";
 
   button.addEventListener("click", () => {
-    localStorage.setItem("premiumMember", "true");
+    premiumMember = true;
+    localStorage.setItem("premiumMember", premiumMember);
     goPremium();
     console.log("premium");
   });
@@ -60,6 +65,10 @@ function removePremiumButton() {
     app.removeChild(premiumButton);
   }
 }
+
+let p = false;
+
+localStorage.setItem("premium", p);
 
 let USD_BTC = new CurrencyConverter("USD", "BTC", 50000, app, click);
 USD_BTC.create();
