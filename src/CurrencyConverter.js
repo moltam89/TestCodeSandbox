@@ -1,9 +1,14 @@
 export default class CurrencyConverter {
-  constructor(fromCurrency, toCurrency, exchangeRate, parent) {
+  constructor(fromCurrency, toCurrency, exchangeRate, parent, click) {
     this.fromCurrency = fromCurrency;
     this.toCurrency = toCurrency;
     this.exchangeRate = exchangeRate;
     this.parent = parent;
+    this.click = click;
+  }
+
+  onClick() {
+    this.click();
   }
 
   create() {
@@ -47,6 +52,10 @@ export default class CurrencyConverter {
 
     fromInput.addEventListener("input", (e) => {
       toInput.value = e.target.value * this.exchangeRate;
+    });
+
+    fromInput.addEventListener("click", () => {
+      this.onClick();
     });
   }
 }
