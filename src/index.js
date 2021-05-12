@@ -11,6 +11,8 @@ let clickCount = 0;
 let premiumMember = false;
 
 function click() {
+  removePremiumButton();
+
   clickCount++;
 
   if (clickCount > 4) {
@@ -24,6 +26,8 @@ function click() {
 
 function createPremiumButton() {
   let divWrapper = document.createElement("div");
+  divWrapper.innerHTML = "You are using the free version!" + "<br />";
+
   divWrapper.id = "premiumButton";
 
   let button = document.createElement("button");
@@ -40,12 +44,20 @@ function createPremiumButton() {
 }
 
 function goPremium() {
-  app.removeChild(document.getElementById("premiumButton"));
+  removePremiumButton();
 
   let premiumSpan = document.createElement("span");
   premiumSpan.innerHTML = "You are a premium member!";
 
   app.appendChild(premiumSpan);
+}
+
+function removePremiumButton() {
+  let premiumButton = document.getElementById("premiumButton");
+
+  if (premiumButton) {
+    app.removeChild(premiumButton);
+  }
 }
 
 let USD_BTC = new CurrencyConverter("USD", "BTC", 50000, app, click);
