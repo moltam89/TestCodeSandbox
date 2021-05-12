@@ -8,7 +8,8 @@ let themeSelector = new ThemeSelector(app);
 themeSelector.create();
 
 let clickCount = 0;
-let premiumMember = false;
+
+localStorage.setItem("premiumMember", "false");
 
 function click() {
   removePremiumButton();
@@ -18,7 +19,7 @@ function click() {
   if (clickCount > 4) {
     clickCount = 0;
 
-    if (!premiumMember) {
+    if (localStorage.getItem("premiumMember") === "false") {
       createPremiumButton();
     }
   }
@@ -34,7 +35,7 @@ function createPremiumButton() {
   button.innerHTML = "Premium";
 
   button.addEventListener("click", () => {
-    premiumMember = true;
+    localStorage.setItem("premiumMember", "true");
     goPremium();
     console.log("premium");
   });
